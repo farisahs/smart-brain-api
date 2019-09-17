@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
+const cors = require('cors');
 const saltRounds = 10;
 const knex = require('knex');
 
@@ -19,6 +20,7 @@ const db = knex({
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
